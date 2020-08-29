@@ -1,2 +1,6 @@
 class Bike
-end 
+
+  def working?
+  end
+
+end
