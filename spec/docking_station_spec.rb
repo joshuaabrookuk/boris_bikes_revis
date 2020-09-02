@@ -18,4 +18,7 @@ describe DockingStation do
   it "should respond to 'dock' with one argument" do
     expect(subject).to respond_to(:dock).with(1).argument
   end
+
+  it { should respond_to :bike }
+
 end
