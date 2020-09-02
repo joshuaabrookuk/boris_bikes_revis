@@ -5,6 +5,6 @@ describe DockingStation do
 
   it 'should releases a bike' do
     bike = subject.release_bike
-    expect(bike).to be_truthy
+    expect(bike).to be
   end
 end
