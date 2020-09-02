@@ -7,4 +7,9 @@ describe DockingStation do
     bike = subject.release_bike
     expect(bike).to be
   end
+
+  it 'should releases a worling bike' do
+    bike = subject.release_bike
+    expect(bike.working?).to eq true
+  end
 end
