@@ -21,4 +21,8 @@ describe DockingStation do
 
   it { should respond_to :bike }
 
+  it "should dock a bike" do
+    expect(subject.dock(bike)).to eq bike
+  end
+
 end
