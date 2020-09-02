@@ -4,4 +4,7 @@ class Bike
     true
   end
 
+  def dock
+  end 
+
 end
