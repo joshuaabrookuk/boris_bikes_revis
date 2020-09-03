@@ -19,7 +19,7 @@ describe DockingStation do
 
   it { should respond_to :dock }
 
-  it 'should respond to 'dock' with one argument' do
+  it 'should respond to #dock with one argument' do
     expect(subject).to respond_to(:dock).with(1).argument
   end
 
