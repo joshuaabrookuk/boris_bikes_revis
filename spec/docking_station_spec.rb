@@ -23,9 +23,16 @@ describe DockingStation do
 
   it { should respond_to :dock }
 
-  it 'should respond to #dock with one argument' do
-    expect(subject).to respond_to(:dock).with(1).argument
-  end
+    describe '#dock' do
+      it 'should respond to #dock with one argument' do
+        expect(subject).to respond_to(:dock).with(1).argument
+      end
+
+      it "should error when a bike is already docked" do
+        expect {subject.dock(:bicycle)}.to raise_error(RuntimeError,"DockingStation full!")
+      end
+    end
+
 
   it { should respond_to :bike }
 
