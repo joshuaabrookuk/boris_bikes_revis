@@ -10,6 +10,10 @@ describe DockingStation do
       subject.dock(:bicycle)
       expect(subject.release_bike).to eq :bicycle
     end
+
+    it "should error when there are no bikes available" do
+      expect {subject.release_bike}.to raise_error("no bike available")
+    end
   end
 
   it 'should releases a worling bike' do
@@ -33,10 +37,5 @@ describe DockingStation do
     subject.dock(:bicycle)
     expect(subject.bike).to eq :bicycle
   end
-
-  # it "should error when there are no bikes available" do
-  #   subject.release_bike
-  #   expect {subject.release_bike}.to raise_error("no bike available")
-  # end
 
 end
