@@ -47,3 +47,10 @@ describe DockingStation do
   end
 
 end
+
+
+
+# def dock(bike)
+#   fail "DockingStation full!" if @bike
+#   @bike = bike
+# end
