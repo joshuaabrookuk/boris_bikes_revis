@@ -3,6 +3,11 @@ require 'docking_station'
 describe DockingStation do
   let(:bicycle) { Bike.new }
 
+  it 'should initialize with an empty \"bikes" array' do
+    expect(subject.bikes).to eq []
+
+  end
+
   it { should respond_to :release_bike }
 
   describe '#release_bike' do
