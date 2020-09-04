@@ -35,7 +35,7 @@ describe DockingStation do
     end
 
 
-  it { should respond_to :bike }
+  it { should respond_to :bikes }
 
   it 'should dock a bike' do
     expect(subject.dock(:bicycle)).to eq :bicycle
@@ -43,7 +43,7 @@ describe DockingStation do
 
   it 'should return the docked bike' do
     subject.dock(:bicycle)
-    expect(subject.bike).to eq :bicycle
+    expect(subject.bikes).to eq :bicycle
   end
 
 end
