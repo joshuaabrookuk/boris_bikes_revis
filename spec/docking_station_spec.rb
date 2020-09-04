@@ -29,6 +29,7 @@ describe DockingStation do
       end
 
       it "should error when a bike is already docked" do
+        subject.dock(:bicycle)
         expect {subject.dock(:bicycle)}.to raise_error(RuntimeError,"DockingStation full!")
       end
     end
