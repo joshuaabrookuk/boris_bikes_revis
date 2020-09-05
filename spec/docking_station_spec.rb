@@ -39,7 +39,6 @@ describe DockingStation do
       end
     end
 
-
   it { should respond_to :bikes }
 
   it 'should dock a bike' do
@@ -49,6 +48,10 @@ describe DockingStation do
   it 'should return the docked bike' do
     subject.dock(:bicycle)
     expect(subject.bikes).to eq [:bicycle]
+  end
+
+  it "should have DEFAULT_CAPACITY const " do
+    expect(DEFAULT_CAPACITY).to be
   end
 
 end
