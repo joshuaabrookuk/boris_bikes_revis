@@ -54,4 +54,8 @@ describe DockingStation do
     expect(DockingStation::DEFAULT_CAPACITY).to be
   end
 
+  it "should have DEFAULT_CAPACITY const at 20 by default" do
+    expect(DockingStation::DEFAULT_CAPACITY).to eq 20
+  end
+
 end
