@@ -11,17 +11,17 @@ describe DockingStation do
   it { should respond_to :release_bike }
 
   describe '#release_bike' do
-    xit 'should release a bike' do
+    it 'should release a bike' do
       subject.dock(:bicycle)
       expect(subject.release_bike).to eq :bicycle
     end
 
-    xit "should error when there are no bikes available" do
+    it "should error when there are no bikes available" do
       expect {subject.release_bike}.to raise_error(RuntimeError,"No bike available!")
     end
   end
 
-  xit 'should releases a worling bike' do
+  it 'should releases a worling bike' do
     subject.dock(:bicycle)
     expect(bicycle.working?).to eq true
   end
@@ -33,7 +33,7 @@ describe DockingStation do
         expect(subject).to respond_to(:dock).with(1).argument
       end
 
-      xit "should error when a bike is already docked" do
+      it "should error when a bike is already docked" do
         subject.dock(:bicycle)
         expect {subject.dock(:bicycle)}.to raise_error(RuntimeError,"DockingStation full!")
       end
@@ -42,11 +42,11 @@ describe DockingStation do
 
   it { should respond_to :bikes }
 
-  xit 'should dock a bike' do
+  it 'should dock a bike' do
     expect(subject.dock(:bicycle)).to eq :bicycle
   end
 
-  xit 'should return the docked bike' do
+  it 'should return the docked bike' do
     subject.dock(:bicycle)
     expect(subject.bikes).to eq :bicycle
   end
