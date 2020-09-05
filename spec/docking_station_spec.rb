@@ -51,7 +51,7 @@ describe DockingStation do
   end
 
   it "should have DEFAULT_CAPACITY const " do
-    expect(DEFAULT_CAPACITY).to be
+    expect(DockingStation::DEFAULT_CAPACITY).to be
   end
 
 end
