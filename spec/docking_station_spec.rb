@@ -34,7 +34,7 @@ describe DockingStation do
       end
 
       it "should error when a bike is already docked" do
-        20.times {subject.dock(:bicycle)}
+        DockingStation::DEFAULT_CAPACITY.times {subject.dock(:bicycle)}
         expect {subject.dock(:bicycle)}.to raise_error(RuntimeError,"DockingStation full!")
       end
     end
@@ -54,7 +54,7 @@ describe DockingStation do
     expect(DockingStation::DEFAULT_CAPACITY).to be
   end
 
-  it "should have DEFAULT_CAPACITY const at 20 by default" do
+  it "should have DEFAULT_CAPACITY const at 20 bydefault" do
     expect(DockingStation::DEFAULT_CAPACITY).to eq 20
   end
 
