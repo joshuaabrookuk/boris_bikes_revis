@@ -58,4 +58,8 @@ describe DockingStation do
     expect(DockingStation::DEFAULT_CAPACITY).to eq 20
   end
 
+  it "should have a capacity atribute" do
+    expect(subject.capacity).to eq true
+  end 
+
 end
