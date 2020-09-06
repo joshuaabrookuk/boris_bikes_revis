@@ -60,6 +60,6 @@ describe DockingStation do
 
   it "should have a capacity atribute" do
     expect(subject.capacity).to eq true
-  end 
+  end
 
 end
