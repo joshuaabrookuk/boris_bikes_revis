@@ -3,8 +3,17 @@ require 'docking_station'
 describe DockingStation do
   let(:bicycle) { Bike.new }
 
-  it 'should initialize with an empty \"bikes" array' do
-    expect(subject.bikes).to eq []
+  describe 'initialize' do
+    it 'should initialize with an empty \"bikes" array' do
+      expect(subject.bikes).to eq []
+    end
+
+    it 'should accept one argument' do
+      subject(19)
+      expect(subject.capacity).to eq 19
+    end
+
+
 
   end
 
@@ -58,12 +67,14 @@ describe DockingStation do
     expect(DockingStation::DEFAULT_CAPACITY).to eq 20
   end
 
-  it "should have a capacity atribute" do
-    expect(subject.capacity).to be
-  end
+  describe '#capacity' do
+    it "should have a capacity atribute" do
+      expect(subject.capacity).to be
+    end
 
-  it "should have a capacity atribute set to DEFAULT_CAPACITY on initialize" do
-    expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    it "should have a capacity atribute set to DEFAULT_CAPACITY on initialize" do
+      expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+    end
   end
 
 end
