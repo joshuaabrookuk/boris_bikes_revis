@@ -62,4 +62,8 @@ describe DockingStation do
     expect(subject.capacity).to eq true
   end
 
+  it "should have a capacity atribute set to DEFAULT_CAPACITY on initialize" do
+    expect(subject.capacity).to eq DockingStation::DEFAULT_CAPACITY
+  end
+
 end
