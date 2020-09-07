@@ -31,7 +31,7 @@ describe DockingStation do
 
   it 'should releases a worling bike' do
     subject.dock(:bicycle)
-    expect(bicycle.working?).to eq true
+    expect(bicycle.working?(true)).to eq true
   end
 
   it { should respond_to :dock }
