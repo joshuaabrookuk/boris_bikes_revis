@@ -4,4 +4,7 @@ class Bike
     true
   end
 
+  def conditon
+  end 
+
 end
