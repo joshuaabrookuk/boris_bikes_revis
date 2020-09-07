@@ -6,4 +6,6 @@ describe Bike do
   it "should be a working bike" do
     expect(subject.working?).to be true
   end
+
+  it { should respond_to :conditon }
 end
