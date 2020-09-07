@@ -3,17 +3,16 @@ require 'docking_station'
 describe DockingStation do
   let(:bicycle) { Bike.new }
 
+
   describe 'initialize' do
     it 'should initialize with an empty \"bikes" array' do
       expect(subject.bikes).to eq []
     end
 
     it 'should accept one argument' do
-      subject(19)
-      expect(subject.capacity).to eq 19
+      station = DockingStation.new(19)
+      expect(station.capacity).to eq 19
     end
-
-
 
   end
 
@@ -43,7 +42,7 @@ describe DockingStation do
       end
 
       it "should error when a bike is already docked" do
-        DockingStation::DEFAULT_CAPACITY.times {subject.dock(:bicycle)}
+        subject.capacity.times {subject.dock(:bicycle)}
         expect {subject.dock(:bicycle)}.to raise_error(RuntimeError,"DockingStation full!")
       end
     end
@@ -63,7 +62,7 @@ describe DockingStation do
     expect(DockingStation::DEFAULT_CAPACITY).to be
   end
 
-  it "should have DEFAULT_CAPACITY const at 20 bydefault" do
+  it "should have DEFAULT_CAPACITY const at 20 by default" do
     expect(DockingStation::DEFAULT_CAPACITY).to eq 20
   end
 
