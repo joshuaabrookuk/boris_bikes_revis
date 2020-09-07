@@ -74,3 +74,19 @@ Traceback (most recent call last):
 /lib/docking_station.rb:14:in `dock'
 RuntimeError (DockingStation full!)
 2.7.0 :006 >
+
+Implementing new user stories
+
+
+
+
+Feature test:
+
+2.7.0 :001 > require './lib/docking_station'
+ => true
+2.7.0 :002 > require './lib/bike'
+ => true
+2.7.0 :003 > station = DockingStation.new
+=> #<DockingStation:0x00007fe0141118d0 @bikes=[], @capacity=20>
+2.7.0 :004 > bike = Bike.new => #<Bike:0x00007fe0109139b0>
+2.7.0 :005 > station.dock(bike.working?(false))
