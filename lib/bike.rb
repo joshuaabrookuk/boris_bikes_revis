@@ -1,11 +1,17 @@
 class Bike
 
-  def working?
-    true
+  attr_reader :status
+
+  def initialize
+    @status = true
   end
 
-  def conditon(status)
-    status
+  def working?
+    @status
+  end
+
+  def condition(status)
+    @status = status
   end
 
 end

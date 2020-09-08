@@ -7,11 +7,11 @@ describe Bike do
     expect(subject.working?).to be true
   end
 
-  it { should respond_to :conditon }
+  it { should respond_to :condition }
 
   describe '#conditon' do
     it 'should accept an argument' do
-      expect(subject).to respond_to(:conditon).with(1).argument
+      expect(subject).to respond_to(:condition).with(1).argument
     end
   end
 
