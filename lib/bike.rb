@@ -4,7 +4,8 @@ class Bike
     true
   end
 
-  def conditon
-  end 
+  def conditon(status)
+    status
+  end
 
 end
