@@ -8,4 +8,11 @@ describe Bike do
   end
 
   it { should respond_to :conditon }
+
+  describe '#conditon' do
+    it 'should accept an argument' do
+      expect(subject).to respond_to(:conditon).with(1).argument
+    end
+  end
+
 end
