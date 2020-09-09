@@ -26,13 +26,19 @@ describe DockingStation do
 
     it "should error when there are no bikes available" do
       expect {subject.release_bike}.to raise_error(RuntimeError,"No bike available!")
-    end
   end
 
-  it 'should releases a worling bike' do
+  it 'should releases a working bike' do
     subject.dock(:bicycle)
     expect(bicycle.working?).to eq true
   end
+
+  it 'should not release a broken bike' do
+    bike = Bike.new
+    subject.dock(bike.condition(false))
+    expect(subject.release_bike).to eq nil
+  end
+end
 
   it { should respond_to :dock }
 
