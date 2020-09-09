@@ -20,8 +20,9 @@ describe DockingStation do
 
   describe '#release_bike' do
     it 'should release a bike' do
-      subject.dock(:bicycle)
-      expect(subject.release_bike).to eq :bicycle
+      bike = Bike.new
+      subject.dock(bike)
+      expect(subject.release_bike).to eq bike
     end
 
     it "should error when there are no bikes available" do
@@ -35,7 +36,8 @@ describe DockingStation do
 
   it 'should not release a broken bike' do
     bike = Bike.new
-    subject.dock(bike.condition(false))
+    bike.condition(false)
+    subject.dock(bike)
     expect(subject.release_bike).to eq nil
   end
 end

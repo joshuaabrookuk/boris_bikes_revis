@@ -6,12 +6,12 @@ class Bike
     @status = true
   end
 
-  def working?
-    @status
-  end
-
   def condition(status)
     @status = status
+  end
+
+  def working?
+    @status
   end
 
 end
