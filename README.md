@@ -90,3 +90,11 @@ Feature test:
 => #<DockingStation:0x00007fe0141118d0 @bikes=[], @capacity=20>
 2.7.0 :004 > bike = Bike.new => #<Bike:0x00007fe0109139b0>
 2.7.0 :005 > station.dock(bike.working?(false))
+
+`require './lib/docking_station'
+require './lib/bike'
+station = DockingStation.new
+bike = Bike.new
+bike.condition(false)
+station.dock(bike)
+station.release_bike`

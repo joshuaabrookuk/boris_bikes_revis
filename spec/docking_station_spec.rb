@@ -20,8 +20,7 @@ describe DockingStation do
 
   describe '#release_bike' do
     it 'should release a bike' do
-      bike = Bike.new
-      subject.dock(bike)
+      subject.dock double(:bicycle)
       expect(subject.release_bike).to eq bike
     end
 
@@ -30,14 +29,13 @@ describe DockingStation do
   end
 
   it 'should releases a working bike' do
-    subject.dock(:bicycle)
+    subject.dock double(:bicycle)
     expect(bicycle.working?).to eq true
   end
 
   it 'should not release a broken bike' do
-    bike = Bike.new
-    bike.condition(false)
-    subject.dock(bike)
+    :bicycle.condition(false)
+    subject.dock double(:bicycle)
     expect {subject.release_bike}.to raise_error(RuntimeError,"No bike available!")
   end
 end
@@ -51,18 +49,18 @@ end
 
       it "should error when a bike is already docked" do
         subject.capacity.times {subject.dock(:bicycle)}
-        expect {subject.dock(:bicycle)}.to raise_error(RuntimeError,"DockingStation full!")
+        expect {subject.dockdouble(:bicycle)}.to raise_error(RuntimeError,"DockingStation full!")
       end
     end
 
   it { should respond_to :bikes }
 
   it 'should dock a bike' do
-    expect(subject.dock(:bicycle)).to eq [:bicycle]
+    expect(subject.dock double(:bicycle)).to eq [:bicycle]
   end
 
   it 'should return the docked bike' do
-    subject.dock(:bicycle)
+    subject.dock double(:bicycle)
     expect(subject.bikes).to eq [:bicycle]
   end
 
