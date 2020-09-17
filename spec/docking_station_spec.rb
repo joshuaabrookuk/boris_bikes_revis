@@ -38,7 +38,7 @@ describe DockingStation do
     bike = Bike.new
     bike.condition(false)
     subject.dock(bike)
-    expect(subject.release_bike).to eq nil
+    expect {subject.release_bike}.to raise_error(RuntimeError,"No bike available!")
   end
 end
 
