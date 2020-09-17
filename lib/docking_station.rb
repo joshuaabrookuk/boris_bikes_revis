@@ -11,10 +11,8 @@ class DockingStation
 
   def release_bike
     raise "No bike available!" if empty? || !bike_status?
-    
+
     @bikes.pop unless !bike_status?
-    # There must be a better way to write this.
-    # raise error if this is true or if this is false
   end
 
   def dock(bike)
