@@ -1,8 +1,6 @@
 require 'docking_station'
 
 describe DockingStation do
-  let(:bicycle) { Bike.new }
-
 
   describe 'initialize' do
     it 'should initialize with an empty \"bikes" array' do
@@ -19,9 +17,9 @@ describe DockingStation do
   it { should respond_to :release_bike }
 
   describe '#release_bike' do
+    let(:bike) { double :bike }
     it 'should release a bike' do
-      bike = Bike.new
-      subject.dock(bike)
+      subject.dock double(:bike)
       expect(subject.release_bike).to eq bike
     end
 
@@ -30,13 +28,13 @@ describe DockingStation do
   end
 
   it 'should releases a working bike' do
-    subject.dock(:bicycle)
-    expect(bicycle.working?).to eq true
+    subject.dock(:bike)
+    allow(bike).to receive(:working?).and_return(true)
+    expect(bike.working?).to eq true
   end
 
   it 'should not release a broken bike' do
-    bike = Bike.new
-    bike.condition(false)
+    allow(bike).to receive(:condition).and_return(false)
     subject.dock(bike)
     expect {subject.release_bike}.to raise_error(RuntimeError,"No bike available!")
   end
