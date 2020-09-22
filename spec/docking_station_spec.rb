@@ -49,18 +49,18 @@ end
 
       it "should error when a bike is already docked" do
         subject.capacity.times {subject.dock(:bicycle)}
-        expect {subject.dock(:bicycle)}.to raise_error(RuntimeError,"DockingStation full!")
+        expect {subject.dockdouble(:bicycle)}.to raise_error(RuntimeError,"DockingStation full!")
       end
     end
 
   it { should respond_to :bikes }
 
   it 'should dock a bike' do
-    expect(subject.dock(:bicycle)).to eq [:bicycle]
+    expect(subject.dock double(:bicycle)).to eq [:bicycle]
   end
 
   it 'should return the docked bike' do
-    subject.dock(:bicycle)
+    subject.dock double(:bicycle)
     expect(subject.bikes).to eq [:bicycle]
   end
 
