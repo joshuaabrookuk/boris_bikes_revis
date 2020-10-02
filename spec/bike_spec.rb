@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 require 'bike'
 
 describe Bike do
   it { should respond_to :working? }
 
-  it "should be a working bike" do
+  it 'should be a working bike' do
     expect(subject.working?).to be true
   end
 
@@ -14,5 +16,4 @@ describe Bike do
       expect(subject).to respond_to(:condition).with(1).argument
     end
   end
-
 end

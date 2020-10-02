@@ -1,5 +1,6 @@
-class Bike
+# frozen_string_literal: true
 
+class Bike
   attr_reader :status
 
   def initialize
@@ -13,5 +14,4 @@ class Bike
   def working?
     @status
   end
-
 end

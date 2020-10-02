@@ -1,18 +1,19 @@
-class DockingStation
+# frozen_string_literal: true
 
+class DockingStation
   DEFAULT_CAPACITY = 20
 
   attr_reader :bikes, :capacity
 
-  def initialize(capacity= DEFAULT_CAPACITY)
+  def initialize(capacity = DEFAULT_CAPACITY)
     @bikes = []
     @capacity = capacity
   end
 
   def release_bike
-    raise "No bike available!" if empty? || !bike_status?
+    raise 'No bike available!' if empty? || !bike_status?
 
-    @bikes.pop unless !bike_status?
+    @bikes.pop if bike_status?
   end
 
   # def release_bike
@@ -24,7 +25,8 @@ class DockingStation
   # end
 
   def dock(bike)
-    raise "DockingStation full!" if full?
+    raise 'DockingStation full!' if full?
+
     @bikes << bike
   end
 
@@ -41,5 +43,4 @@ class DockingStation
   def empty?
     @bikes.empty?
   end
-
 end
