@@ -22,7 +22,7 @@ describe DockingStation do
     it 'should release a bike' do
       bicycle = Bike.new
       subject.dock(bicycle)
-      expect(subject.release_bike).to eqbicycle
+      expect(subject.release_bike).to eq bicycle
     end
 
     it 'should error when there are no bikes available' do
