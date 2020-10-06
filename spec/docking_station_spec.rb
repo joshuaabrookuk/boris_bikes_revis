@@ -38,7 +38,7 @@ describe DockingStation do
     it 'should not release a broken bike' do
       subject.dock(bike)
       allow(bike).to receive(:status).and_return(false)
-      expect {subject.release_bike}.to raise_error(RuntimeError, 'No bike available!')
+      expect { subject.release_bike }.to raise_error(RuntimeError, 'No bike available!')
     end
   end
 

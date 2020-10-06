@@ -77,9 +77,6 @@ RuntimeError (DockingStation full!)
 
 Implementing new user stories
 
-
-
-
 Feature test:
 
 2.7.0 :001 > require './lib/docking_station'
@@ -90,6 +87,51 @@ Feature test:
 => #<DockingStation:0x00007fe0141118d0 @bikes=[], @capacity=20>
 2.7.0 :004 > bike = Bike.new => #<Bike:0x00007fe0109139b0>
 2.7.0 :005 > station.dock(bike.working?(false))
+
+
+"Men with ven"
+
+`As a maintainer of the system,
+So that I can manage broken bikes and not disappoint users,
+I'd like vans to take broken bikes from docking stations and deliver them to garages to be fixed.
+
+As a maintainer of the system,
+So that I can manage broken bikes and not disappoint users,
+I'd like vans to collect working bikes from garages and distribute them to docking stations.
+`
+looks like we'll need two new classes, vans and garages.
+
+First off the van takes boken bikes from the docking station and stores them. The client has not indicated a limit on the ammount of bikes it can hold so I will assume it will take all them it can then drop them into a garage. They can also drop working bikes back off at a docking station.
+
+Next we have garages, they can store bikes, no limit given and fixes bikes.
+I wonder weather if I should impelemt a fix method for a garage or if the bikes should be automatically fixed when dropped off.
+
+
+
+Feature test 'tree':
+(All 'Named' classes exist for this feature flow)
+
+Station.bikes = [[Bike_1, working],[Bike_2, broken],[Bike_3, broken]]
+Van.collect_bikes(Station)
+Station.bikes = [[Bike_1, working]]
+Van.bikes = [[Bike_2, broken],[Bike_3, broken]]
+Van.drop_off_bikes(Garage)
+Van.bikes = []
+Garage = [[Bike_2, working],[Bike_3, working]]
+Van.collect_bikes(Garage)
+Van.drop_off_bikes(Station)
+
+There are a few problems here:
+
+One being what happend if a Station only needs one fixed bike replaces but the Van wants to drop off two. We will get an error but it's not very practical. Maybe the Van only drops off an many bikes as the Station needs.
+
+What happens if the Van tries to drop off a broken Bike back to a Station? Error?
+
+We still have the isse of auotmatic fixing at a Garage vs a fix method.
+
+Also my code is starting to look rather messy.
+
+
 
 `require './lib/docking_station'
 require './lib/bike'
