@@ -7,4 +7,7 @@ describe Van do
       expect(subject.bikes).to eq []
     end
   end
+
+  it { should respond_to :collect_bikes }
+
 end
