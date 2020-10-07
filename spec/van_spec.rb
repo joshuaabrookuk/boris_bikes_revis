@@ -10,4 +10,10 @@ describe Van do
 
   it { should respond_to :collect_bikes }
 
+  describe '#collect_bikes' do
+    it 'should respond to #collect_bikes with one argument' do
+        expect(subject).to respond_to(:collect_bikes).with(1).argument
+      end
+    end
+    
 end
