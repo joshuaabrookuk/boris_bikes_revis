@@ -5,5 +5,7 @@ class Van
     @bikes = []
   end
 
-  def collect_bikes; end 
+  def collect_bikes(station)
+  end
+  
 end
