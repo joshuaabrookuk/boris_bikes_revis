@@ -1,4 +1,4 @@
-require_relative 'van'
+require 'van'
 
 describe Van do
 end
