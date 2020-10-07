@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# The DockingStation class holds Bike objects and has a maximum capacity of 20
+# It also knows not to release a broken bike
 class DockingStation
   DEFAULT_CAPACITY = 20
 

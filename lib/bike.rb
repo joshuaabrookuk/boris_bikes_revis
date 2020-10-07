@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# The Bike class is mostly a static object but It remembers it's status
 class Bike
   attr_reader :status
 

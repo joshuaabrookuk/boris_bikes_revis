@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 require 'van'
 
 describe Van do
-
   describe 'initialize' do
     it 'should initialize with an empty "bikes" array' do
       expect(subject.bikes).to eq []
@@ -12,8 +13,7 @@ describe Van do
 
   describe '#collect_bikes' do
     it 'should respond to #collect_bikes with one argument' do
-        expect(subject).to respond_to(:collect_bikes).with(1).argument
-      end
+      expect(subject).to respond_to(:collect_bikes).with(1).argument
     end
-    
+  end
 end

@@ -50,8 +50,8 @@ describe DockingStation do
     end
 
     it 'should error when a bike is already docked' do
-      subject.capacity.times {subject.dock(:bike)}
-      expect {subject.dock double(:bike)}.to raise_error(RuntimeError, 'DockingStation full!')
+      subject.capacity.times { subject.dock(:bike) }
+      expect { subject.dock double(:bike) }.to raise_error(RuntimeError, 'DockingStation full!')
     end
   end
 
