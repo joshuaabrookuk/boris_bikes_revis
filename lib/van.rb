@@ -5,4 +5,5 @@ class Van
     @bikes = []
   end
 
+  def collect_bikes; end 
 end
