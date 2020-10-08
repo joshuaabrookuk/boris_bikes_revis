@@ -8,5 +8,9 @@ class Van
     @bikes = []
   end
 
-  def collect_bikes(station); end
+  def collect_bikes(station)
+    station.bikes.each do |bike|
+      @bikes << bike
+    end
+  end
 end
