@@ -9,8 +9,6 @@ class Van
   end
 
   def collect_bikes(station)
-    station.bikes.each do |bike|
-      @bikes << bike
-    end
+    station.bikes.each { |bike| @bikes << bike }
   end
 end
