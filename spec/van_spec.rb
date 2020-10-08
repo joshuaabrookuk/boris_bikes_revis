@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require 'van'
+require 'docking_station'
+require 'bike'
 
 describe Van do
   describe 'initialize' do
@@ -14,6 +16,13 @@ describe Van do
   describe '#collect_bikes' do
     it 'should respond to #collect_bikes with one argument' do
       expect(subject).to respond_to(:collect_bikes).with(1).argument
+    end
+    it 'should collect bikes from the dockingstation' do
+      dockingstation = DockingStation.new
+      bike = Bike.new
+      dockingstation.dock(bike)
+      subject.collect_bikes(dockingstation)
+      expect(subject.bikes).to eq [bike]
     end
   end
 end
