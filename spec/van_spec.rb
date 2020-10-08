@@ -23,5 +23,31 @@ describe Van do
       subject.collect_bikes(dockingstation)
       expect(subject.bikes).to eq [bike]
     end
+
+    # it 'should only collect broken bikes from the dockingstation' do
+    #   # allow(dockingstation).to receive(:bikes).and_return([bike])
+    #   # allow(bike).to receive(:status).and_return(false)
+    #   station = DockingStation.new
+    #   bike_1 = Bike.new
+    #   bike_2 = Bike.new
+    #   bike_2.condition(false)
+    #   station.dock(bike_1)
+    #   station.dock(bike_2)
+    #   subject.collect_bikes(station)
+    #   expect(subject.bikes[0].status).to eq false
+    # end
+
+    it 'should only collect broken bikes from the dockingstation' do
+      # allow(dockingstation).to receive(:bikes).and_return([bike])
+      # allow(bike).to receive(:status).and_return(false)
+      station = DockingStation.new
+      bike_1 = Bike.new
+      bike_2 = Bike.new
+      bike_2.condition(false)
+      station.dock(bike_1)
+      station.dock(bike_2)
+      subject.collect_bikes(station)
+      expect(subject.bikes[0].status).to eq false
+    end
   end
 end
