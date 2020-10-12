@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # The Van class is a work in progress
+
 class Van
   attr_reader :bikes
 
