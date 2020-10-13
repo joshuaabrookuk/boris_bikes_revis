@@ -135,8 +135,14 @@ Also my code is starting to look rather messy.
 
 `require './lib/docking_station'
 require './lib/bike'
+require './lib/van'
+require './lib/garage'
 station = DockingStation.new
 bike = Bike.new
+van = Van.new
+garage = Garage.new
 bike.condition(false)
 station.dock(bike)
-station.release_bike`
+van.collect_bikes(station)
+van.drop_off_bikes(garage)
+`

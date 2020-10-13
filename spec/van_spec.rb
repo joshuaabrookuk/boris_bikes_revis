@@ -37,20 +37,20 @@ describe Van do
       subject.collect_bikes(dockingstation)
       expect(subject.bikes[0].status).to eq false
     end
-  end 
+  end
 
-    it { should respond_to(:drop_off_bikes).with(1).arguments }
+  it { should respond_to(:drop_off_bikes).with(1).arguments }
 
-    describe '#drop_off_bikes' do
-      it 'should drop the bikes at a garage' do
-        bike = Bike.new
-        station = DockingStation.new
-        garage = Garage.new
-        bike.condition(false)
-        station.dock(bike)
-        subject.collect_bikes(station)
-        subject.drop_off_bikes(garage)
-        expect(garage.bikes).to eq [bike]
+  describe '#drop_off_bikes' do
+    it 'should drop the bikes at a garage' do
+      bike = Bike.new
+      station = DockingStation.new
+      garage = Garage.new
+      bike.condition(false)
+      station.dock(bike)
+      subject.collect_bikes(station)
+      subject.drop_off_bikes(garage)
+      expect(garage.bikes).to eq [bike]
     end
   end
 end

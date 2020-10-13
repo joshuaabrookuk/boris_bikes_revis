@@ -14,5 +14,9 @@ class Van
     end
   end
 
-  def drop_off_bikes(garage); end
+  def drop_off_bikes(garage)
+    @bikes.each do |bike|
+      garage.bikes << bike
+    end
+  end
 end
