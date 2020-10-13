@@ -39,5 +39,8 @@ describe Van do
       subject.collect_bikes(dockingstation)
       expect(subject.bikes[0].status).to eq false
     end
+
+    it { should respond_to(:drop_off_bikes).with(1).arguments }
+    
   end
 end

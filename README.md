@@ -123,7 +123,7 @@ Van.drop_off_bikes(Station)
 
 There are a few problems here:
 
-One being what happend if a Station only needs one fixed bike replaces but the Van wants to drop off two. We will get an error but it's not very practical. Maybe the Van only drops off an many bikes as the Station needs.
+One being what happend if a Station only needs one fixed bike replaced but the Van wants to drop off two bike. We will get an error but it's not very practical. Maybe the Van only drops off an many bikes as the Station needs.
 
 What happens if the Van tries to drop off a broken Bike back to a Station? Error?
 
