@@ -8,6 +8,8 @@ class Garage
     @bikes = []
   end
 
+  def fix; end 
+
   # def fix
   #   @bikes.each do |bike|
   #     bike.condition(true)
