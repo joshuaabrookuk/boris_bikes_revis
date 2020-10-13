@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 # The Van class is a work in progress
-
 class Van
   attr_reader :bikes
 
@@ -11,11 +10,9 @@ class Van
 
   def collect_bikes(station)
     station.bikes.each do |bike|
-      if bike.status == false
-        @bikes << bike
-      end
+      @bikes << bike if bike.status == false
     end
   end
 
-  def drop_off_bikes(x); end 
+  def drop_off_bikes(garage); end
 end

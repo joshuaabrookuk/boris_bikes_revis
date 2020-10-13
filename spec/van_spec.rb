@@ -18,18 +18,16 @@ describe Van do
       expect(subject).to respond_to(:collect_bikes).with(1).argument
     end
 
-
     it 'should only collect broken bikes from the dockingstation' do
       allow(bike).to receive(:condition).with(false).and_return(false)
       allow(dockingstation).to receive(:dock).with(bike).and_return(bike)
-      bike_2 = Bike.new
-      allow(dockingstation).to receive(:dock).with(bike_2).and_return(bike_2)
+      bike2 = Bike.new
+      allow(dockingstation).to receive(:dock).with(bike2).and_return(bike2)
       allow(dockingstation).to receive(:bikes).and_return([bike])
       allow(bike).to receive(:status).and_return(false)
       subject.collect_bikes(dockingstation)
       expect(subject.bikes).to eq [bike]
     end
-
 
     it 'should only collect broken bikes from the dockingstation' do
       allow(bike).to receive(:condition).with(false).and_return(false)
@@ -41,6 +39,5 @@ describe Van do
     end
 
     it { should respond_to(:drop_off_bikes).with(1).arguments }
-    
   end
 end
