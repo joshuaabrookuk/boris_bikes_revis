@@ -7,4 +7,10 @@ class Garage
   def initialize
     @bikes = []
   end
+
+  def fix
+    @bikes.each do |bike|
+      bike.condition(true)
+    end
+  end
 end
