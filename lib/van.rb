@@ -18,5 +18,6 @@ class Van
     @bikes.each do |bike|
       garage.bikes << bike
     end
+    @bikes = []
   end
 end
