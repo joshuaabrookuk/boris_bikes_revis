@@ -16,4 +16,6 @@ class Van
       end
     end
   end
+
+  def drop_off_bikes(x); end 
 end
