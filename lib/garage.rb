@@ -8,9 +8,9 @@ class Garage
     @bikes = []
   end
 
-  def fix
-    @bikes.each do |bike|
-      bike.condition(true)
-    end
-  end
+  # def fix
+  #   @bikes.each do |bike|
+  #     bike.condition(true)
+  #   end
+  # end
 end
