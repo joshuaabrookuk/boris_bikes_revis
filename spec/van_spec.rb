@@ -5,6 +5,7 @@ require 'van'
 describe Van do
   let(:bike) { double :bike }
   let(:dockingstation) { double :docking_station }
+  let(:garage) { double :garage }
   describe 'initialize' do
     it 'should initialize with an empty "bikes" array' do
       expect(subject.bikes).to eq []
@@ -43,13 +44,11 @@ describe Van do
 
   describe '#drop_off_bikes' do
     it 'should drop the bikes at a garage' do
-      bike = Bike.new
-      station = DockingStation.new
-      garage = Garage.new
-      bike.condition(false)
-      station.dock(bike)
-      subject.collect_bikes(station)
-      subject.drop_off_bikes(garage)
+      allow(bike).to receive(:condition).with(false).and_return(false)
+      allow(dockingstation).to receive(:dock).with(bike).and_return(bike)
+      allow(subject).to receive(:collect_bikes).with(dockingstation).and_return(bike)
+      allow(subject).to receive(:drop_off_bikes).with(garage).and_return(bike)
+      allow(garage).to receive(:bikes).and_return([bike])
       expect(garage.bikes).to eq [bike]
     end
   end
