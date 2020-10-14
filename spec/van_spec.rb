@@ -19,7 +19,7 @@ describe Van do
       expect(subject).to respond_to(:collect_bikes).with(1).argument
     end
 
-    it 'should only collect broken bikes from the dockingstation' do
+    it 'should collect broken bikes from the dockingstation' do
       allow(bike).to receive(:condition).with(false).and_return(false)
       allow(dockingstation).to receive(:dock).with(bike).and_return(bike)
       bike2 = Bike.new

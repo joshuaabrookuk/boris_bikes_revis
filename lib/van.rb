@@ -8,15 +8,15 @@ class Van
     @bikes = []
   end
 
-  def collect_bikes(station)
-    station.bikes.each do |bike|
+  def collect_bikes(location)
+    location.bikes.each do |bike|
       @bikes << bike if bike.status == false
     end
   end
 
-  def drop_off_bikes(garage)
+  def drop_off_bikes(location)
     @bikes.each do |bike|
-      garage.bikes << bike
+      location.bikes << bike
     end
     @bikes = []
   end
