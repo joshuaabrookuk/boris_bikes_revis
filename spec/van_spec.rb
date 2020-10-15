@@ -79,7 +79,7 @@ describe Van do
       garage.fix_all
       subject.collect_bikes(garage)
       subject.drop_off_bikes(station)
-      expect(subject.bikes).to eq [bike]
-    end 
+      expect(station.bikes).to eq [bike]
+    end
   end
 end

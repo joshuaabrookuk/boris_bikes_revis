@@ -13,6 +13,7 @@ class Van
       location.bikes.each do |bike|
         @bikes << bike if bike.status == false
       end
+      location.bikes.clear
     elsif location.is_a?(Garage)
       location.bikes.each do |bike|
         @bikes << bike
