@@ -9,10 +9,17 @@ class Van
   end
 
   def collect_bikes(location)
-    location.bikes.each do |bike|
-      @bikes << bike if bike.status == false
+    if location.is_a?(DockingStation)
+      location.bikes.each do |bike|
+        @bikes << bike if bike.status == false
+      end
+    elsif location.is_a?(Garage)
+      location.bikes.each do |bike|
+        @bikes << bike
+      end
     end
   end
+
 
   def drop_off_bikes(location)
     @bikes.each do |bike|

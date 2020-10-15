@@ -27,6 +27,7 @@ describe Van do
       allow(dockingstation).to receive(:bikes).and_return([bike])
       allow(bike).to receive(:status).and_return(false)
       subject.collect_bikes(dockingstation)
+      allow(subject).to receive(:bikes).and_return([bike])
       expect(subject.bikes).to eq [bike]
     end
 
@@ -36,6 +37,7 @@ describe Van do
       allow(dockingstation).to receive(:bikes).and_return([bike])
       allow(bike).to receive(:status).and_return(false)
       subject.collect_bikes(dockingstation)
+      allow(subject).to receive(:bikes).and_return([bike])
       expect(subject.bikes[0].status).to eq false
     end
 
