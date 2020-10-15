@@ -11,14 +11,10 @@ class Van
   def collect_bikes(location)
     case location
     when DockingStation
-      location.bikes.each do |bike|
-        @bikes << bike if bike.status == false
-      end
+      pull_bikes if bike.status == false
       location.bikes.clear
     when Garage
-      location.bikes.each do |bike|
-        @bikes << bike
-      end
+      pull_bikes
     end
   end
 
@@ -27,5 +23,13 @@ class Van
       location.bikes << bike
     end
     @bikes = []
+  end
+
+  private
+
+  def pull_bikes
+    location.bikes.each do |bike|
+      @bikes << bike
+    end
   end
 end
