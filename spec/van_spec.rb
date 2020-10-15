@@ -42,16 +42,13 @@ describe Van do
     end
 
     it 'should also collect working bikes from the garage' do
-      bike = Bike.new
-      station = DockingStation.new
-      van = Van.new
-      garage = Garage.new
-      bike.condition(false)
-      station.dock(bike)
-      subject.collect_bikes(station)
-      subject.drop_off_bikes(garage)
-      garage.fix_all
-      subject.collect_bikes(garage)
+      allow(bike).to receive(:condition).with(false).and_return(false)
+      allow(dockingstation).to receive(:dock).with(bike).and_return(bike)
+      allow(subject).to receive(:collect_bikes).with(dockingstation).and_return(bike)
+      allow(subject).to receive(:drop_off_bikes).with(garage).and_return(bike)
+      allow(garage).to receive(:fix_all).and_return([bike])
+      allow(subject).to receive(:collect_bikes).with(garage).and_return(bike)
+      allow(subject).to receive(:bikes).and_return([bike])
       expect(subject.bikes).to eq [bike]
     end
   end
@@ -68,18 +65,15 @@ describe Van do
       expect(garage.bikes).to eq [bike]
     end
     it 'should also drop off working bikes to a station' do
-      bike = Bike.new
-      station = DockingStation.new
-      van = Van.new
-      garage = Garage.new
-      bike.condition(false)
-      station.dock(bike)
-      subject.collect_bikes(station)
-      subject.drop_off_bikes(garage)
-      garage.fix_all
-      subject.collect_bikes(garage)
-      subject.drop_off_bikes(station)
-      expect(station.bikes).to eq [bike]
+      allow(bike).to receive(:condition).with(false).and_return(false)
+      allow(dockingstation).to receive(:dock).with(bike).and_return(bike)
+      allow(subject).to receive(:collect_bikes).with(dockingstation).and_return(bike)
+      allow(subject).to receive(:drop_off_bikes).with(garage).and_return(bike)
+      allow(garage).to receive(:fix_all).and_return([bike])
+      allow(subject).to receive(:collect_bikes).with(garage).and_return(bike)
+      allow(subject).to receive(:drop_off_bikes).with(dockingstation).and_return(bike)
+      allow(dockingstation).to receive(:bikes).and_return([bike])
+      expect(dockingstation.bikes).to eq [bike]
     end
   end
 end

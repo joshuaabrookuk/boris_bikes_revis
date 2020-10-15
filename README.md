@@ -147,3 +147,55 @@ van.collect_bikes(station)
 van.drop_off_bikes(garage)
 garage.fix_all
 `
+
+
+def collect_bikes(location)
+  if location.is_a?(DockingStation)
+    location.bikes.each do |bike|
+      @bikes << bike if bike.status == false
+    end
+    location.bikes.clear
+  elsif location.is_a?(Garage)
+    location.bikes.each do |bike|
+      @bikes << bike
+    end
+  end
+end
+
+
+
+def collect_bikes(location)
+  case location
+  when DockingStation
+    location.bikes.each do |bike|
+      @bikes << bike if bike.status == false
+    end
+    location.bikes.clear
+  when Garage
+    location.bikes.each do |bike|
+      @bikes << bike
+    end
+  end
+end
+
+
+
+
+
+def collect_bikes(location)
+  case location
+  when DockingStation
+    method if bike.status == false
+    location.bikes.clear
+  when Garage
+    method
+  end
+end
+
+private
+
+def method
+  location.bikes.each do |bike|
+    @bikes << bike
+  end
+end
