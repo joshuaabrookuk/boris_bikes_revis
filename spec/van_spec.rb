@@ -38,6 +38,20 @@ describe Van do
       subject.collect_bikes(dockingstation)
       expect(subject.bikes[0].status).to eq false
     end
+
+    it 'should also collect working bikes from the garage' do
+      bike = Bike.new
+      station = DockingStation.new
+      van = Van.new
+      garage = Garage.new
+      bike.condition(false)
+      station.dock(bike)
+      subject.collect_bikes(station)
+      subject.drop_off_bikes(garage)
+      garage.fix_all
+      subject.collect_bikes(garage)
+      expect(subject.bikes).to eq [bike]
+    end
   end
 
   it { should respond_to(:drop_off_bikes).with(1).arguments }

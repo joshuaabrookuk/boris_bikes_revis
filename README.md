@@ -145,4 +145,5 @@ bike.condition(false)
 station.dock(bike)
 van.collect_bikes(station)
 van.drop_off_bikes(garage)
+garage.fix_all
 `
