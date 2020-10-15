@@ -67,5 +67,19 @@ describe Van do
       allow(garage).to receive(:bikes).and_return([bike])
       expect(garage.bikes).to eq [bike]
     end
+    it 'should also drop off working bikes to a station' do
+      bike = Bike.new
+      station = DockingStation.new
+      van = Van.new
+      garage = Garage.new
+      bike.condition(false)
+      station.dock(bike)
+      subject.collect_bikes(station)
+      subject.drop_off_bikes(garage)
+      garage.fix_all
+      subject.collect_bikes(garage)
+      subject.drop_off_bikes(station)
+      expect(subject.bikes).to eq [bike]
+    end 
   end
 end
