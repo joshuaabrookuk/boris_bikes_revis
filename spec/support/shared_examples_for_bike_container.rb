@@ -1,0 +1,5 @@
+shared_examples_for BikeContainer do
+  it 'has a empty bikes attribute when initialized' do
+    expect(subject.bikes).to eq BikeContainer::bikes
+  end
+end
