@@ -199,3 +199,7 @@ def method
     @bikes << bike
   end
 end
+
+Modules as mixins
+
+Behaviour shared by the DockingStation, Van, and Garage classes are that they all have a @bikes instance variable that is set to = [] on initialization 
