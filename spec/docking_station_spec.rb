@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 require 'docking_station'
+require 'support/shared_examples_for_bike_container'
 
 describe DockingStation do
   let(:bike) { double :bike }
+
+  it_behaves_like BikeContainer
 
   describe 'initialize' do
     it 'should initialize with an empty \"bikes" array' do
